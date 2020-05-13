@@ -49,3 +49,13 @@ export const getFifthAlbumError = (error) => ({
   type: PhotoTypes.GET_FIFTH_ALBUM_ERROR,
   payload: error,
 });
+
+export const addRemoveFavoritesSuccess = (albumId, photo) => ({
+  type: PhotoTypes.ADD_REMOVE_FAVORITES_SUCCESS,
+  albumId,
+  payload: photo
+});
+
+export const clearState = () => ({
+  type: PhotoTypes.CLEAR_STATE,
+});

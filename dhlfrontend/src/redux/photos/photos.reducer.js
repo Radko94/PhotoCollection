@@ -1,11 +1,6 @@
 import { PhotoTypes } from "./photos.types";
 
 const INITIAL_STATE = {
-  firstAlbum: null,
-  secondAlbum: null,
-  thirdAlbum: null,
-  fourthAlbum: null,
-  fifthAlbum: null,
   albums: [],
   photosError: null,
 };
@@ -15,7 +10,6 @@ const photoReducer = (state = INITIAL_STATE, action) => {
     case PhotoTypes.GET_FIRST_ALBUM_SUCCESS:
       return {
         ...state,
-        firstAlbum: action.payload,
         albums: Object.assign([], [...state.albums, action.payload]),
         photosError: null,
       };
@@ -27,7 +21,6 @@ const photoReducer = (state = INITIAL_STATE, action) => {
     case PhotoTypes.GET_SECOND_ALBUM_SUCCESS:
       return {
         ...state,
-        secondAlbum: action.payload,
         albums: Object.assign([], [...state.albums, action.payload]),
         photosError: null,
       };
@@ -39,7 +32,6 @@ const photoReducer = (state = INITIAL_STATE, action) => {
     case PhotoTypes.GET_THIRD_ALBUM_SUCCESS:
       return {
         ...state,
-        thirdAlbum: action.payload,
         albums: Object.assign([], [...state.albums, action.payload]),
         photosError: null,
       };
@@ -51,7 +43,6 @@ const photoReducer = (state = INITIAL_STATE, action) => {
     case PhotoTypes.GET_FOURTH_ALBUM_SUCCESS:
       return {
         ...state,
-        fourthAlbum: action.payload,
         albums: Object.assign([], [...state.albums, action.payload]),
         photosError: null,
       };
@@ -63,7 +54,6 @@ const photoReducer = (state = INITIAL_STATE, action) => {
     case PhotoTypes.GET_FIFTH_ALBUM_SUCCCESS:
       return {
         ...state,
-        fifthAlbum: action.payload,
         albums: Object.assign([], [...state.albums, action.payload]),
         photosError: null,
       };
@@ -72,6 +62,21 @@ const photoReducer = (state = INITIAL_STATE, action) => {
         ...state,
         photosError: null,
       };
+    case PhotoTypes.ADD_REMOVE_FAVORITES_SUCCESS:
+      const updatedAlbums = Object.assign([], [...state.albums]);
+      const album = updatedAlbums.filter(
+        (x) => x.albumId === action.albumId
+      )[0];
+      album.photoCollection.filter((x) => x.id === action.payload.id)[0] =
+        action.payload;
+
+        updatedAlbums.filter(x => (x) => x.albumId === action.albumId)[0] = album
+      return {
+        ...state,
+        albums: Object.assign([], [...updatedAlbums])
+      };
+    case PhotoTypes.CLEAR_STATE:
+      return INITIAL_STATE;
     default:
       return state;
   }

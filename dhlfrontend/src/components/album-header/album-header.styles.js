@@ -1,0 +1,25 @@
+import { makeStyles } from "@material-ui/core/styles";
+
+const headerStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    width: "100%",
+  },
+  title: {
+    display: "flex",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "flex-start",
+  },
+  buttons: {
+    display: "flex",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "flex-end",
+  },
+  links: {
+    textDecoration: "none",
+  },
+}));
+
+export default headerStyles;

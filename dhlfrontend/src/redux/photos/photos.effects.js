@@ -13,6 +13,8 @@ import {
   getFourthAlbumError,
   getFifthAlbumSuccess,
   getFifthAlbumError,
+  addRemoveFavoritesSuccess,
+  clearState,
 } from "./photos.actions";
 
 const devUrl = "http://localhost:3100/photos";
@@ -98,4 +100,12 @@ export const getFifthAlbum = () => {
       )
       .subscribe();
   };
+};
+
+export const addRemoveFavorites = (albumId, photo) => {
+  return (dispatch) => dispatch(addRemoveFavoritesSuccess(albumId, photo));
+};
+
+export const clearStoreState = () => {
+  return (dispatch) => dispatch(clearState());
 };
