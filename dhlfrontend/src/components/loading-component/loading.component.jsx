@@ -6,7 +6,7 @@ const CircularIndeterminate = ({ contained, className }) => {
   const classes = useStyles();
 
   return (
-    <div className={className}>
+    <main className={className}>
       {contained ? (
         <CircularProgress className={classes.circle} />
       ) : (
@@ -14,7 +14,7 @@ const CircularIndeterminate = ({ contained, className }) => {
           <CircularProgress className={classes.circle} />
         </div>
       )}
-    </div>
+    </main>
   );
 };
 

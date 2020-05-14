@@ -46,7 +46,7 @@ const Album = (props) => {
   };
 
   return (
-    <div className={classes.root}>
+    <article className={classes.root}>
       <AlbumHeader albumId={albumId} title={albumTitle} />
       <GridList cellHeight={200} spacing={1} className={classes.gridList}>
         {photoCollection.map((tile, i) => (
@@ -70,7 +70,7 @@ const Album = (props) => {
           </GridListTile>
         ))}
       </GridList>
-    </div>
+    </article>
   );
 };
 

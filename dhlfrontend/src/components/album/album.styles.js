@@ -6,7 +6,7 @@ const albumStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     justifyContent: "space-around",
     overflow: "hidden",
-    backgroundColor: "#ffa4a2",
+    backgroundColor: "#fdd835",
   },
   gridList: {
     width: "100%",

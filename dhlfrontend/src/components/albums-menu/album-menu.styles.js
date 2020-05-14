@@ -4,12 +4,13 @@ const albumMenuStyles = makeStyles((theme) => ({
   root: {
     display: "unset",
     flexWrap: "unset",
-    minWidth: 'unset',
+    minWidth: "unset",
     width: "unset",
   },
   image: {
     position: "relative",
     height: 326,
+    minHeight: "149px",
     [theme.breakpoints.down("xs")]: {
       width: "100% !important",
       height: 100,

@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fbc02d",
+    backgroundColor: "#fdd835",
     "& > * + *": {
       marginLeft: theme.spacing(2),
     },
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   circle: {
     width: "25% !important",
     height: "25% !important",
-    color: "#c49000 !important",
+    color: "#c6a700 !important",
   },
 }));
 

@@ -1,7 +1,15 @@
 import React, { lazy } from "react";
 import { Link } from "react-router-dom";
 
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+
 import useStyles from "./album-menu.styles";
+
+import {
+  selectAlbums,
+  selectPhotosError,
+} from "../../redux/photos/photos.selector";
 
 const ButtonBase = lazy(() => import("@material-ui/core/ButtonBase"));
 const Typography = lazy(() => import("@material-ui/core/Typography"));
@@ -9,7 +17,7 @@ const Typography = lazy(() => import("@material-ui/core/Typography"));
 const AlbumsMenu = ({ albums }) => {
   const classes = useStyles();
   return (
-    <div>
+    <article>
       {albums.map((album, i) => (
         <Link key={album.albumId} to={`/${i + 1}`} className={classes.root}>
           <ButtonBase
@@ -42,8 +50,13 @@ const AlbumsMenu = ({ albums }) => {
           </ButtonBase>
         </Link>
       ))}
-    </div>
+    </article>
   );
 };
 
-export default AlbumsMenu;
+const mapStateToProps = createStructuredSelector({
+  albums: selectAlbums,
+  error: selectPhotosError,
+});
+
+export default connect(mapStateToProps)(AlbumsMenu);

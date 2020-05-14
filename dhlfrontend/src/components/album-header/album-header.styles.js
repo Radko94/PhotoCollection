@@ -4,7 +4,7 @@ const headerStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     width: "100%",
-    backgroundColor: "#fbc02d",
+    backgroundColor: "#fdd835",
   },
   title: {
     display: "flex",

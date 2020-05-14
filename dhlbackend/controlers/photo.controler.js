@@ -8,24 +8,23 @@ exports.getAlbums = (req, res, next) => {
 };
 
 const processData = () => {
-  const albumOneRaw = data.filter((x) => x.albumId === 1);
-  const albumTwoRaw = data.filter((x) => x.albumId === 2);
-  const albumThreeRaw = data.filter((x) => x.albumId === 3);
-  const albumFourRaw = data.filter((x) => x.albumId === 4);
-  const albumFiveRaw = data.filter((x) => x.albumId === 5);
+  const output = [];
 
-  const albumOne = new AlbumModel(1, "Album One");
-  const albumTwo = new AlbumModel(2, "Album Two");
-  const albumThree = new AlbumModel(3, "Album Three");
-  const albumFour = new AlbumModel(4, "Album Four");
-  const albumFive = new AlbumModel(5, "Album Five");
-  const favorites = new AlbumModel(6, "Favorites");
+  for (let i = 0; i < 6; i++) {
+    const album = data.filter((x) => x.albumId === i + 1);
+    const albumOutput = new AlbumModel(i + 1, iterationMapTable[i + 1]);
+    album.map((x) => albumOutput.addPhoto(x));
+    output.push(albumOutput);
+  }
 
-  albumOneRaw.map((x) => albumOne.addPhoto(x));
-  albumTwoRaw.map((x) => albumTwo.addPhoto(x));
-  albumThreeRaw.map((x) => albumThree.addPhoto(x));
-  albumFourRaw.map((x) => albumFour.addPhoto(x));
-  albumFiveRaw.map((x) => albumFive.addPhoto(x));
+  return output;
+};
 
-  return [albumOne, albumTwo, albumThree, albumFour, albumFive, favorites];
+const iterationMapTable = {
+  1: "Album One",
+  2: "Album Two",
+  3: "Album Three",
+  4: "Album Four",
+  5: "Album Five",
+  6: "Favorites",
 };

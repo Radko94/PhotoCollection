@@ -15,8 +15,9 @@ import {
   selectPhotosError,
 } from "./redux/photos/photos.selector";
 
-
-const Home = lazy(() => import("./pages/home/home.component"));
+const AlbumMenu = lazy(() =>
+  import("./components/albums-menu/albums-menu.component")
+);
 const Album = lazy(() => import("./components/album/album.component"));
 
 class App extends Component {
@@ -34,13 +35,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
+      <main className="app">
         <Switch>
-          <Route path="/albums-menu" component={Home} />
+          <Route path="/albums-menu" component={AlbumMenu} />
           <Route path="/:id" component={Album} />
           <Redirect path="*" to="/albums-menu" />
         </Switch>
-      </div>
+      </main>
     );
   }
 }
