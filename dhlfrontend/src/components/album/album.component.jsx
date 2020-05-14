@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy } from "react";
 import { useParams } from "react-router-dom";
 
 import { connect } from "react-redux";
@@ -16,13 +16,16 @@ import { addRemoveFavoritesSuccess } from "../../redux/photos/photos.actions";
 
 import albumStyles from "./album.styles";
 
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
-import GridListTileBar from "@material-ui/core/GridListTileBar";
-import IconButton from "@material-ui/core/IconButton";
+const GridList = lazy(() => import("@material-ui/core/GridList"));
+const GridListTile = lazy(() => import("@material-ui/core/GridListTile"));
+const GridListTileBar = lazy(() => import("@material-ui/core/GridListTileBar"));
+const IconButton = lazy(() => import("@material-ui/core/IconButton"));
 
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import FavoriteIcon from "@material-ui/icons/Favorite";
+const FavoriteBorderIcon = lazy(() =>
+  import("@material-ui/icons/FavoriteBorder")
+);
+
+const FavoriteIcon = lazy(() => import("@material-ui/icons/Favorite"));
 
 const Album = (props) => {
   const classes = albumStyles();

@@ -4,12 +4,14 @@ const headerStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     width: "100%",
+    backgroundColor: "#fbc02d",
   },
   title: {
     display: "flex",
     width: "100%",
     alignItems: "center",
     justifyContent: "flex-start",
+    padding: "0 25px",
   },
   buttons: {
     display: "flex",
@@ -19,6 +21,7 @@ const headerStyles = makeStyles((theme) => ({
   },
   links: {
     textDecoration: "none",
+    padding: "0 25px",
   },
 }));
 

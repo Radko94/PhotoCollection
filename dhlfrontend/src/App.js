@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, lazy } from "react";
 
 import { Switch, Route, Redirect } from "react-router-dom";
 
@@ -8,16 +8,16 @@ import { bindActionCreators } from "redux";
 
 import "./App.css";
 
-import Home from "./pages/home/home.component";
-import Album from "./components/album/album.component";
-
-
 import { getAlbums, clearStoreState } from "./redux/photos/photos.effects";
 
 import {
   selectAlbums,
   selectPhotosError,
 } from "./redux/photos/photos.selector";
+
+
+const Home = lazy(() => import("./pages/home/home.component"));
+const Album = lazy(() => import("./components/album/album.component"));
 
 class App extends Component {
   constructor(props) {

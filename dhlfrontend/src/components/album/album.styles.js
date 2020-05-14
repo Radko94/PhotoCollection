@@ -6,7 +6,7 @@ const albumStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     justifyContent: "space-around",
     overflow: "hidden",
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: "#ffa4a2",
   },
   gridList: {
     width: "100%",
@@ -14,6 +14,7 @@ const albumStyles = makeStyles((theme) => ({
     transform: "translateZ(0)",
   },
   titleBar: {
+    fontFamily: '"Balsamiq Sans", cursive',
     background:
       "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, " +
       "rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",

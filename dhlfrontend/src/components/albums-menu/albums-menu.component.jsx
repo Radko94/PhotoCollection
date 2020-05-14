@@ -1,10 +1,10 @@
-import React from "react";
+import React, { lazy } from "react";
 import { Link } from "react-router-dom";
 
-import ButtonBase from "@material-ui/core/ButtonBase";
-import Typography from "@material-ui/core/Typography";
-
 import useStyles from "./album-menu.styles";
+
+const ButtonBase = lazy(() => import("@material-ui/core/ButtonBase"));
+const Typography = lazy(() => import("@material-ui/core/Typography"));
 
 const AlbumsMenu = ({ albums }) => {
   const classes = useStyles();

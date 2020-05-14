@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom";
 
 import { BrowserRouter } from "react-router-dom";
@@ -6,25 +6,23 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux/sore";
+import LoadingComponent from "./components/loading-component/loading.component";
 
-import "./index.css";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
+import './index.css'
+
+const App = lazy(() => import("./App"));
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <PersistGate persistor={persistor}>
-          <App />
-        </PersistGate>
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>,
+  <Suspense fallback={<LoadingComponent />}>
+    <React.StrictMode>
+      <Provider store={store}>
+        <BrowserRouter>
+          <PersistGate persistor={persistor}>
+            <App />
+          </PersistGate>
+        </BrowserRouter>
+      </Provider>
+    </React.StrictMode>
+  </Suspense>,
   document.getElementById("root")
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

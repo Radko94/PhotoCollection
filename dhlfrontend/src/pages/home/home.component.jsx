@@ -1,14 +1,18 @@
-import React, { Component } from "react";
+import React, { Component, lazy } from "react";
 
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import AlbumsMenu from "../../components/albums-menu/albums-menu.component";
+// import AlbumsMenu from "../../components/albums-menu/albums-menu.component";
 
 import {
   selectAlbums,
   selectPhotosError,
 } from "../../redux/photos/photos.selector";
+
+const AlbumsMenu = lazy(() =>
+  import("../../components/albums-menu/albums-menu.component")
+);
 
 class Home extends Component {
   constructor(props) {
