@@ -17,7 +17,9 @@ import {
   clearState,
 } from "./photos.actions";
 
+const prodUrl = "https://tranquil-meadow-86152.herokuapp.com/photos";
 const devUrl = "http://localhost:3100/photos";
+const backEndUrl = process.env.NODE_ENV === "production" ? prodUrl : devUrl;
 
 export const getFirstAlbum = () => {
   console.log("getFirstAlbum");
@@ -25,7 +27,7 @@ export const getFirstAlbum = () => {
     from(
       axios({
         method: "GET",
-        url: devUrl + "/getFirstAlbum",
+        url: backEndUrl + "/getFirstAlbum",
       })
     )
       .pipe(
@@ -42,7 +44,7 @@ export const getSecondAlbum = () => {
     from(
       axios({
         method: "GET",
-        url: devUrl + "/getSecondAlbum",
+        url: backEndUrl + "/getSecondAlbum",
       })
     )
       .pipe(
@@ -58,7 +60,7 @@ export const getThirdAlbum = () => {
     from(
       axios({
         method: "GET",
-        url: devUrl + "/getThirdlbum",
+        url: backEndUrl + "/getThirdlbum",
       })
     )
       .pipe(
@@ -74,7 +76,7 @@ export const getFourthAlbum = () => {
     from(
       axios({
         method: "GET",
-        url: devUrl + "/getFourthAlbum",
+        url: backEndUrl + "/getFourthAlbum",
       })
     )
       .pipe(
@@ -90,7 +92,7 @@ export const getFifthAlbum = () => {
     from(
       axios({
         method: "GET",
-        url: devUrl + "/getFifthAlbum",
+        url: backEndUrl + "/getFifthAlbum",
       })
     )
       .pipe(

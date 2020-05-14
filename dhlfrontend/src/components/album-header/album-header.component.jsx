@@ -7,7 +7,6 @@ import headerStyles from "./album-header.styles";
 
 const AlbumHeader = ({ title }) => {
   const classes = headerStyles();
-  console.log(title);
   return (
     <div className={classes.root}>
       <div className={classes.title}>

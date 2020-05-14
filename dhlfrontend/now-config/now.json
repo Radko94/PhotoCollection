@@ -1,0 +1,10 @@
+{
+    "routes": [
+      { "src": "/albums-menu", "dest": "/" },
+      { "src": "/1", "dest": "/" },
+      { "src": "/2", "dest": "/" },
+      { "src": "/3", "dest": "/" },
+      { "src": "/4", "dest": "/" },
+      { "src": "/5", "dest": "/" }
+    ]
+  }
