@@ -11,14 +11,8 @@ import "./App.css";
 import Home from "./pages/home/home.component";
 import Album from "./components/album/album.component";
 
-import {
-  getFirstAlbum,
-  getSecondAlbum,
-  getThirdAlbum,
-  getFourthAlbum,
-  getFifthAlbum,
-  clearStoreState,
-} from "./redux/photos/photos.effects";
+
+import { getAlbums, clearStoreState } from "./redux/photos/photos.effects";
 
 import {
   selectAlbums,
@@ -32,21 +26,9 @@ class App extends Component {
     this.state = {};
   }
   componentWillMount() {
-    const {
-      getFirst,
-      getSecond,
-      getThird,
-      getFourth,
-      getFifth,
-      albums,
-    } = this.props;
-
+    const { getAlbums, albums } = this.props;
     if (!albums.length) {
-      getFirst();
-      getSecond();
-      getThird();
-      getFourth();
-      getFifth();
+      getAlbums();
     }
   }
 
@@ -71,11 +53,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
-      getFirst: getFirstAlbum,
-      getSecond: getSecondAlbum,
-      getThird: getThirdAlbum,
-      getFourth: getFourthAlbum,
-      getFifth: getFifthAlbum,
+      getAlbums: getAlbums,
       clear: clearStoreState,
     },
     dispatch

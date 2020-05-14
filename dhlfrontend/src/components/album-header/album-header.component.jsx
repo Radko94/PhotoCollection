@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 
 import headerStyles from "./album-header.styles";
 
-const AlbumHeader = ({ title }) => {
+const AlbumHeader = ({ albumId, title }) => {
   const classes = headerStyles();
   return (
     <div className={classes.root}>
@@ -16,7 +16,7 @@ const AlbumHeader = ({ title }) => {
         <Link to="/" className={classes.links}>
           <Button color="primary">HOME</Button>
         </Link>
-        <Link to="/favorites" className={classes.links}>
+        <Link to="/6" className={classes.links}>
           <Button color="secondary">FAVORITES</Button>
         </Link>
       </div>

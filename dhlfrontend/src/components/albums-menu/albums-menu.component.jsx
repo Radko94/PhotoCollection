@@ -17,7 +17,7 @@ const AlbumsMenu = ({ albums }) => {
             className={classes.image}
             focusVisibleClassName={classes.focusVisible}
             style={{
-              width: i === 2 ? "100%" : "50%",
+              width: (i + 1) % 3 === 1 ? "100%" : "50%",
             }}
           >
             <span

@@ -37,8 +37,6 @@ const Album = (props) => {
     if (photo.favorite) photo.favorite = false;
     else photo.favorite = true;
 
-    console.log(albumId, photo);
-
     const { favorites } = props;
 
     favorites(albumId, photo);
@@ -46,7 +44,7 @@ const Album = (props) => {
 
   return (
     <div className={classes.root}>
-      <AlbumHeader title={albumTitle} />
+      <AlbumHeader albumId={albumId} title={albumTitle} />
       <GridList cellHeight={200} spacing={1} className={classes.gridList}>
         {photoCollection.map((tile, i) => (
           <GridListTile key={tile.id} cols={(i + 1) % 3 === 1 ? 2 : 1} rows={2}>
