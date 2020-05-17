@@ -2,6 +2,8 @@ import React from "react";
 import useStyles from "./loading.styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
+import PropTypes from "prop-types";
+
 const CircularIndeterminate = ({ contained, className }) => {
   const classes = useStyles();
 
@@ -16,6 +18,11 @@ const CircularIndeterminate = ({ contained, className }) => {
       )}
     </main>
   );
+};
+
+CircularIndeterminate.propTypes = {
+  contained: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default CircularIndeterminate;

@@ -1,10 +1,11 @@
 import React, { lazy } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import useStyles from "./album-menu.styles";
+import useStyles from "./albums-menu.styles";
 
 import {
   selectAlbums,
@@ -16,6 +17,7 @@ const Typography = lazy(() => import("@material-ui/core/Typography"));
 
 const AlbumsMenu = ({ albums }) => {
   const classes = useStyles();
+
   return (
     <article>
       {albums.map((album, i) => (
@@ -52,6 +54,10 @@ const AlbumsMenu = ({ albums }) => {
       ))}
     </article>
   );
+};
+
+AlbumsMenu.propTypes = {
+  albums: PropTypes.array,
 };
 
 const mapStateToProps = createStructuredSelector({

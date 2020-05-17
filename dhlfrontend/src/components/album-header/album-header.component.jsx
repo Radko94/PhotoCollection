@@ -1,6 +1,8 @@
 import React, { lazy } from "react";
 import { Link } from "react-router-dom";
 
+import PropTypes from "prop-types";
+
 import headerStyles from "./album-header.styles";
 const Button = lazy(() => import("@material-ui/core/Button"));
 
@@ -25,6 +27,11 @@ const AlbumHeader = ({ albumId, title }) => {
       </aside>
     </header>
   );
+};
+
+AlbumHeader.propTypes = {
+  albumId: PropTypes.number,
+  title: PropTypes.string,
 };
 
 export default AlbumHeader;

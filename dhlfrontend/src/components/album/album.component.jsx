@@ -1,6 +1,8 @@
 import React, { lazy } from "react";
 import { useParams } from "react-router-dom";
 
+import PropTypes from "prop-types";
+
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { bindActionCreators } from "redux";
@@ -27,11 +29,10 @@ const FavoriteBorderIcon = lazy(() =>
 
 const FavoriteIcon = lazy(() => import("@material-ui/icons/Favorite"));
 
-const Album = (props) => {
+const Album = ({ albums, favorites }) => {
   const classes = albumStyles();
   let { id } = useParams();
 
-  const { albums } = props;
   const album = { ...albums.filter((x) => x.albumId === +id)[0] };
 
   const { albumId, albumTitle, photoCollection } = album;
@@ -39,8 +40,6 @@ const Album = (props) => {
   const addRemoveFavorites = (albumId, photo) => {
     if (photo.favorite) photo.favorite = false;
     else photo.favorite = true;
-
-    const { favorites } = props;
 
     favorites(albumId, photo);
   };
@@ -72,6 +71,11 @@ const Album = (props) => {
       </GridList>
     </article>
   );
+};
+
+Album.propTypes = {
+  albums: PropTypes.array,
+  favorites: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
