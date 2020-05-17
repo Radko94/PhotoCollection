@@ -48,26 +48,36 @@ const Album = ({ albums, favorites }) => {
     <article className={classes.root}>
       <AlbumHeader albumId={albumId} title={albumTitle} />
       <GridList cellHeight={200} spacing={1} className={classes.gridList}>
-        {photoCollection.map((tile, i) => (
-          <GridListTile key={tile.id} cols={(i + 1) % 3 === 1 ? 2 : 1} rows={2}>
-            <img src={tile.url} alt={tile.title} />
-            <GridListTileBar
-              title={tile.title}
-              titlePosition="top"
-              actionIcon={
-                <IconButton
-                  aria-label={`star ${tile.title}`}
-                  className={classes.icon}
-                  onClick={() => addRemoveFavorites(albumId, tile)}
-                >
-                  {tile.favorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-                </IconButton>
-              }
-              actionPosition="left"
-              className={classes.titleBar}
-            />
-          </GridListTile>
-        ))}
+        {photoCollection && photoCollection.length > 0 ? (
+          photoCollection.map((tile, i) => (
+            <GridListTile
+              key={tile.id}
+              cols={(i + 1) % 3 === 1 ? 2 : 1}
+              rows={2}
+            >
+              <img src={tile.url} alt={tile.title} />
+              <GridListTileBar
+                title={tile.title}
+                titlePosition="top"
+                actionIcon={
+                  <IconButton
+                    aria-label={`star ${tile.title}`}
+                    className={classes.icon}
+                    onClick={() => addRemoveFavorites(albumId, tile)}
+                  >
+                    {tile.favorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                  </IconButton>
+                }
+                actionPosition="left"
+                className={classes.titleBar}
+              />
+            </GridListTile>
+          ))
+        ) : (
+          <h1 className={classes.noElements}>
+            No elements at this time. Check again later.
+          </h1>
+        )}
       </GridList>
     </article>
   );

@@ -13,6 +13,7 @@ const photoReducer = (state = INITIAL_STATE, action) => {
         albums: action.payload,
       };
     case PhotoTypes.GET_ALBUMS_ERROR:
+      console.log(action.payload);
       return {
         ...state,
         photosError: action.payload,

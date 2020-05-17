@@ -22,6 +22,16 @@ const albumStyles = makeStyles((theme) => ({
   icon: {
     color: "white",
   },
+  noElements: {
+    height: "86vh !important",
+    width: "100% !important",
+    padding: "0 5% !important",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: "37px",
+    textAlign: "center",
+  },
 }));
 
 export default albumStyles;

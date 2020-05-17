@@ -26,8 +26,10 @@ class App extends Component {
 
     this.state = {};
   }
-  componentWillMount() {
+
+  componentDidMount() {
     const { getAlbums, albums } = this.props;
+
     if (!albums.length) {
       getAlbums();
     }

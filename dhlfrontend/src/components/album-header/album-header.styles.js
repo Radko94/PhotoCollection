@@ -11,7 +11,7 @@ const headerStyles = makeStyles((theme) => ({
     width: "100%",
     alignItems: "center",
     justifyContent: "flex-start",
-    padding: "0 25px",
+    padding: "0 2%",
   },
   buttons: {
     display: "flex",
@@ -21,7 +21,7 @@ const headerStyles = makeStyles((theme) => ({
   },
   links: {
     textDecoration: "none",
-    padding: "0 25px",
+    padding: "0 3%",
   },
 }));
 

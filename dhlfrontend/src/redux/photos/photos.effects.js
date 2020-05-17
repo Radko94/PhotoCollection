@@ -14,7 +14,6 @@ const devUrl = "http://localhost:3100/photos";
 const backEndUrl = process.env.NODE_ENV === "production" ? prodUrl : devUrl;
 
 export const getAlbums = () => {
-  console.log("getAlbums");
   return (dispatch) => {
     from(
       axios({

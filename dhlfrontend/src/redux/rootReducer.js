@@ -7,7 +7,6 @@ const persistConfig = {
   key: "root",
   storage,
   whitelist: ["photos"],
-  timeout: null,
 };
 
 const rootReducer = combineReducers({
